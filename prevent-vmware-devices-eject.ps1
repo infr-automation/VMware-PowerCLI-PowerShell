@@ -1,0 +1,1 @@
+Register-ScheduledTask -Action (New-ScheduledTaskAction Powershell.exe 'gp hklm:\S*M\C*t\E*m\*I\*\*\ -E ACP | Where {($_.Capabilities -band 0x4) -eq 0x4} | % {sp $_.PSPath Capabilities ($_.Capabilities -bxor 0x4)}') -Trigger (New-ScheduledTaskTrigger -AtStartup) -TaskName NoEjectVMDev -User System
