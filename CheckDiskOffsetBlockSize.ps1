@@ -8,7 +8,7 @@ $objects = @();
                 ServerName = $srvName
                 DiskName = $_.Name
                 StartOffset = $_.StartingOffset
-                BlockSize = $.BlockSize
+                BlockSize = $_.BlockSize
                 Result = if(($_.StartingOffset % 4096) -eq 0){"Partitioned Correctly"}else{"ISSUE"}
             }
         }
